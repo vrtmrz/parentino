@@ -1,0 +1,12 @@
+{
+  "tasks": {
+    "run": "deno run --allow-net --allow-env --allow-read --allow-write main.ts",
+    "test": "deno test --allow-read --allow-net tests/",
+    "sample": "deno run --allow-read --allow-net main.ts -v tests/vars.yaml tests/template.md"
+  },
+  "imports": {
+    "@std/yaml": "jsr:@std/yaml@1",
+    "@std/dotenv": "jsr:@std/dotenv",
+    "@std/assert": "jsr:@std/assert@1"
+  }
+}

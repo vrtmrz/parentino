@@ -1,0 +1,5 @@
+name: World
+author:
+  name: Alice
+  role: Engineer
+greeting: Hello
