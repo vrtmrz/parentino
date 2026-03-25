@@ -115,8 +115,22 @@ Deno.test("with flattens object scope", async () => {
 
 // --- include (file) ---
 Deno.test("include renders file", async () => {
+  const out = await r("((include tests/item.md))", {
+    item: { name: "X", done: true },
+  });
+  assertEquals(out.replaceAll("\r\n", "\n"), "- X: ✅\n");
+});
+
+Deno.test("rawfile includes file without rendering", async () => {
+  const out = await r("((rawfile tests/item.md))", {
+    item: { name: "X", done: true },
+  });
   assertEquals(
-    await r("((include tests/item.md))", { item: { name: "X", done: true } }),
-    "- X: ✅\n",
+    out.replaceAll("\r\n", "\n"),
+    '- ((= item.name)): ((if item.done "✅" "⬜"))\n',
   );
+});
+
+Deno.test("nop outputs empty string", async () => {
+  assertEquals(await r("A((nop comment text))B"), "AB");
 });

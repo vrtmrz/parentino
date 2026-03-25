@@ -148,6 +148,7 @@ The `body` argument to `each` also accepts an inline expression directly.
 | Syntax            | Description                                                                                             |
 | ----------------- | ------------------------------------------------------------------------------------------------------- |
 | `((include uri))` | Loads the template at `uri`, renders it with the current variable scope, and splices the result inline. |
+| `((rawfile uri))` | Loads content at `uri` and splices it inline without rendering.                                         |
 
 The URI may be a file path or a URL. The included template is fully evaluated.
 Combine with `each` to use partials.
@@ -155,6 +156,18 @@ Combine with `each` to use partials.
 ```
 ((include partials/header.md))
 ((each item items ((include partials/item.md))))
+
+((rawfile docs/static.md))
+```
+
+**Comments / no-op**
+
+| Syntax        | Description                                              |
+| ------------- | -------------------------------------------------------- |
+| `((nop ...))` | Outputs nothing; useful for inline template comments.    |
+
+```
+((nop this note will not be rendered))
 ```
 
 **Strings**

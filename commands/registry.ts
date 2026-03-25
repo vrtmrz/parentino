@@ -9,10 +9,12 @@ import { defineCmd } from "./define.ts";
 import { captureCmd } from "./capture.ts";
 import { withCmd } from "./with.ts";
 import { includeCmd } from "./include.ts";
+import { rawfileCmd } from "./rawfile.ts";
 import { eachCmd } from "./each.ts";
 import { eqCmd, ifCmd, notCmd } from "./cond.ts";
 import { concatCmd, lowerCmd, upperCmd } from "./string.ts";
 import { quoteCmd } from "./quote.ts";
+import { nopCmd } from "./nop.ts";
 
 const commands = new Map<string, Command>();
 const blockCommands = new Map<string, BlockCommand>();
@@ -32,6 +34,8 @@ registerAll([
   captureCmd,
   withCmd,
   includeCmd,
+  rawfileCmd,
+  nopCmd,
   eachCmd,
   ifCmd,
   eqCmd,

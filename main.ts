@@ -43,6 +43,8 @@ Syntax:
   ((= var))                    Output variable (dot-notation supported)
   ((define k v))               Define variable (no output)
   ((include uri))              Include and render another template
+  ((rawfile uri))              Include content without rendering
+  ((nop ...))                  No-op (useful for inline comments)
   ((if cond then [else]))      Conditional
   ((eq a b))                   "true" if a === b
   ((not val))                  "true" if falsy
